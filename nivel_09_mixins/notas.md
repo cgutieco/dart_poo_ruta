@@ -1,10 +1,3 @@
-Perfecto 🙌.
-Gracias por la observación: a partir de aquí tendré mucho cuidado con los bloques ``` para no romper el formato.
-
-Aquí tienes el Capítulo 9: Mixins en Dart, extenso, académico y con apoyo visual en tablas y diagramas tipo árbol.
-
-⸻
-
 # Capítulo 9. Mixins en Dart
 
 En el ecosistema de la Programación Orientada a Objetos, los **mixins** representan un mecanismo que se sitúa a medio

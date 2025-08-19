@@ -1,10 +1,3 @@
-Perfecto 🙌. Este tema es uno de los más interesantes porque a partir de Dart 3.x el lenguaje adquirió un sistema rico de
-modificadores de clase, mucho más expresivo y académico que el de Java, y conviene estudiarlo con profundidad.
-
-Aquí tienes el capítulo completo en Markdown siguiendo el mismo estilo académico, con tablas y ayudas visuales.
-
-⸻
-
 # Capítulo 10. Modificadores de Clases en Dart (3.x)
 
 La evolución de Dart hacia su versión 3.x introdujo un sistema de **modificadores de clase** que enriquece el modelo de

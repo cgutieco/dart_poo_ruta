@@ -77,15 +77,9 @@ distintos.
 Ejemplo conceptual:
 
 ```dart
-
 var r1 = (x: 1, y: 2);
 var r2 = (x: 1, y: 2);
-print
-(
-r1
-==
-r2
-); // true
+print(r1==r2); // true
 ```
 
 Este comportamiento contrasta con las clases, donde la igualdad depende de la implementación de ==.
