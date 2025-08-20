@@ -36,6 +36,21 @@ Los parámetros posicionales se especifican en un orden determinado. El programa
 secuencia al crear un objeto. Son adecuados cuando el significado de cada parámetro es evidente por su posición o cuando
 el número de parámetros es reducido.
 
+**Ejemplo:**
+
+```dart
+class Punto {
+  int x, y;
+
+  Punto(this.x, this.y);
+}
+
+void main() {
+  var p = Punto(3, 4);
+  print('x: ${p.x}, y: ${p.y}');
+}
+```
+
 ### 3.2.2 Parámetros nombrados
 
 Los parámetros nombrados se indican mediante llaves `{}` y permiten al invocador especificar explícitamente el nombre de
@@ -43,6 +58,21 @@ cada argumento. Esto aumenta la legibilidad y reduce los errores por confusión 
 
 Además, los parámetros nombrados son los preferidos en Dart para constructores y funciones que aceptan múltiples
 valores, ya que hacen que el código sea más autoexplicativo.
+
+**Ejemplo:**
+
+```dart
+class Punto {
+  int x, y;
+
+  Punto({this.x = 0, this.y = 0});
+}
+
+void main() {
+  var p = Punto(y: 5, x: 2);
+  print('${p.x}, ${p.y}');
+}
+```
 
 ### 3.2.3 Parámetros requeridos
 
@@ -52,6 +82,16 @@ objeto a proporcionar dicho valor, garantizando así que no quede sin inicializa
 La verificación se realiza en tiempo de compilación, lo que refuerza la seguridad del sistema de tipos y evita errores
 en la ejecución.
 
+**Ejemplo:**
+
+```dart
+class Punto {
+  int x, y;
+
+  Punto({required this.x, required this.y});
+}
+```
+
 ### 3.2.4 Parámetros opcionales
 
 Dart permite definir parámetros opcionales, ya sea posicionales (entre corchetes `[]`) o nombrados con valores por
@@ -60,6 +100,16 @@ o puede asumirse un valor estándar si no se proporciona.
 
 Gracias a estas variantes, el programador puede diseñar constructores que se adapten a distintos casos de uso sin
 necesidad de sobrecargar métodos como en otros lenguajes.
+
+**Ejemplo:**
+
+```dart
+class Punto {
+  int x, y;
+
+  Punto([this.x = 0, this.y = 0]);
+}
+```
 
 ---
 
@@ -91,6 +141,18 @@ Funciones principales de los inicializadores:
 - Invocar a constructores de la superclase o de otras variables finales antes de que el objeto esté completamente
   construido.
 
+**Ejemplo:**
+
+```dart
+class Punto {
+  int x, y;
+
+  Punto(int valor)
+      : x = valor,
+        y = valor;
+}
+```
+
 Gracias a los inicializadores, Dart garantiza que un objeto no pueda existir en un estado inconsistente, ya que sus
 campos deben tener valores válidos inmediatamente después de la instanciación.
 
@@ -109,10 +171,37 @@ múltiples formas de inicializar un objeto sin necesidad de repetir el construct
 Ejemplo conceptual: una clase `Fecha` puede ofrecer constructores nombrados como `Fecha.desdeCadena()` o
 `Fecha.desdeTimestamp()`, cada uno de los cuales construye el objeto de manera distinta.
 
+**Ejemplo:**
+
+```dart
+class Fecha {
+  int dia, mes, anio;
+
+  Fecha(this.dia, this.mes, this.anio);
+
+  Fecha.desdeCadena(String cadena)
+      : dia = 1,
+        mes = 1,
+        anio = int.parse(cadena);
+}
+```
+
 ### Constructores de redirección
 
 Un constructor de redirección no contiene lógica propia, sino que delega la creación en otro constructor de la misma
 clase. Esto evita duplicar código y permite centralizar la lógica de inicialización en un único lugar.
+
+**Ejemplo:**
+
+```dart
+class Punto {
+  int x, y;
+
+  Punto(this.x, this.y);
+
+  Punto.origen() : this(0, 0);
+}
+```
 
 Se declaran utilizando la sintaxis de redirección con `:` seguido de la llamada al otro constructor.
 
@@ -130,6 +219,32 @@ Características del constructor `factory`:
   objetos ya creados.
 - A diferencia de los constructores regulares, no tiene acceso directo a los inicializadores de campos; debe delegar en
   otros constructores o en lógica personalizada.
+
+**Ejemplo:**
+
+```dart
+class Logger {
+  static Logger? _instancia;
+
+  Logger._privado();
+
+  factory Logger() {
+    _instancia ??= Logger._privado();
+    return _instancia!;
+  }
+
+  void log(String mensaje) {
+    print('Log: $mensaje');
+  }
+}
+
+void main() {
+  var logger1 = Logger();
+  var logger2 = Logger();
+  print(logger1 == logger2); // true
+  logger1.log('Mensaje de prueba');
+}
+```
 
 Los constructores `factory` son particularmente útiles cuando la creación de objetos no sigue una simple asignación de
 valores, sino que depende de condiciones externas, cachés, registros o configuraciones.
@@ -150,6 +265,27 @@ Reglas principales:
   los constructores disponibles de la superclase.
 - `super` también puede usarse para inicializar directamente parámetros heredados en los campos de la subclase,
   simplificando así la sintaxis.
+
+**Ejemplo:**
+
+```dart
+class Animal {
+  String nombre;
+
+  Animal(this.nombre);
+}
+
+class Perro extends Animal {
+  int edad;
+
+  Perro(String nombre, this.edad) : super(nombre);
+}
+
+void main() {
+  var miPerro = Perro('Firulais', 3);
+  print('Nombre: ${miPerro.nombre}, Edad: ${miPerro.edad}');
+}
+```
 
 De este modo, `super` asegura la correcta construcción de toda la jerarquía de clases, desde las más generales hasta las
 más específicas.
