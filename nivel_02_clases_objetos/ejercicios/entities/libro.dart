@@ -6,7 +6,7 @@ class Libro {
   DateTime _anioPublicacion;
   int _nroPaginas;
 
-  // Atributo de la clase
+  // Atributos de la clase
   static const int maximoPaginas = 1000;
   static const int fechaMinima = 1900;
 
@@ -48,6 +48,27 @@ class Libro {
   void setNroPaginas(int nroPaginas) {
     if (nroPaginas <= Libro.maximoPaginas) {
       _nroPaginas = nroPaginas;
+    }
+  }
+
+  void imprimirInformacion() {
+    String informacion =
+        """Título: ${_titulo}
+Autor: ${_autor}
+Año de publicación: ${_anioPublicacion.year}
+Número de páginas: ${_nroPaginas}
+""";
+
+    print(informacion);
+  }
+
+  void aumentarNroPaginas(int cantidadPaginas) {
+    _nroPaginas += cantidadPaginas;
+    if (_nroPaginas > Libro.maximoPaginas) {
+      print(
+        "Se alcanzó el máximo permitido de páginas.\nEl excedente de descartará.\n",
+      );
+      _nroPaginas = Libro.maximoPaginas;
     }
   }
 }

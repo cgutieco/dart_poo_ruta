@@ -5,13 +5,12 @@ void main() {
     "Julio Idalgo",
     "Benito Perez",
     DateTime(2000, 2, 14),
-    1000,
+    500,
   );
 
-  print(
-    libro1.autor +
-        libro1.titulo +
-        libro1.anioPublicacion.toString() +
-        libro1.nroPaginas.toString(),
-  );
+  libro1.imprimirInformacion();
+
+  libro1.aumentarNroPaginas(2500);
+
+  libro1.imprimirInformacion();
 }
