@@ -18,6 +18,16 @@ La elección del nombre de la clase sigue las convenciones propias del lenguaje:
 *PascalCase* (cada palabra inicia con mayúscula y se escriben sin guiones ni guiones bajos). Por ejemplo, `Persona`,
 `CuentaBancaria`, `VehiculoElectrico`.
 
+Ejemplos de definición de clases:
+
+```dart
+    class Persona {}
+
+class CuentaBancaria {}
+
+class VehiculoElectrico {}
+```
+
 La definición de una clase puede contener:
 
 - **Campos o atributos**, que representan el estado interno del objeto.
@@ -48,6 +58,28 @@ del objeto.
 - Pueden acceder a los atributos y modificarlos.
 - Representan acciones, operaciones o transformaciones relacionadas con el dominio del objeto.
 
+Ejemplos de definición de atributos y métodos:
+
+```dart
+    class Persona {
+  // Atributos
+  String nombre;
+  int edad;
+  String direccion;
+  String telefono;
+  String email;
+
+  // Métodos
+  void imprimirNombre() {
+    print('Nombre: $nombre');
+  }
+
+  void cumplirAnos() {
+    edad += 1;
+  }
+}
+```
+
 En el diseño de una clase bien estructurada, atributos y métodos deben estar en estrecha correspondencia: los primeros
 definen el *qué es* un objeto, y los segundos, *qué puede hacer*.
 
@@ -69,6 +101,25 @@ El propósito de los getters y setters no es simplemente redundar en el acceso a
 - Ofrecer propiedades calculadas, cuyo valor no corresponde directamente a un atributo almacenado, sino al resultado de
   un cálculo.
 
+Ejemplo de uso de getters y setters:
+
+```dart
+    class Persona {
+  String nombre;
+  int edad;
+
+  // Getter
+  String get nombreCompleto => '$nombre $apellido';
+
+  // Setter
+  set nombreCompleto(String nombreCompleto) {
+    var partes = nombreCompleto.split(' ');
+    nombre = partes[0];
+    apellido = partes.length > 1 ? partes[1] : '';
+  }
+}
+```
+
 Este mecanismo favorece la **encapsulación**, principio fundamental de la POO, pues evita que los atributos queden
 expuestos de forma indiscriminada y permite controlar el modo en que se consultan o modifican.
 
@@ -79,8 +130,35 @@ expuestos de forma indiscriminada y permite controlar el modo en que se consulta
 En Dart, los atributos de una clase pueden inicializarse de diversas formas:
 
 1. Mediante un valor por defecto en la declaración del campo.
+   **Ejemplo:**
+    ```dart
+        class Persona {
+          String nombre = 'Desconocido';
+          int edad = 0;
+        }
+    ```
 2. A través de los parámetros de un constructor (tema tratado en detalle en capítulos posteriores).
+   **Ejemplo:**
+    ```dart
+        class Persona {
+          String nombre;
+          int edad;
+
+          Persona(this.nombre, this.edad);
+        }
+    ```
 3. Con inicializadores, que permiten asignar un valor antes de que el cuerpo del constructor se ejecute.
+   **Ejemplo:**
+    ```dart
+        class Persona {
+          String nombre;
+          int edad;
+          
+          Persona(this.nombre, this.edad) : 
+            nombre = nombre.isEmpty ? 'Desconocido' : nombre,
+            edad = edad < 0 ? 0 : edad;
+        }
+   ```
 
 Los inicializadores cumplen un papel importante en la consistencia del objeto. Garantizan que todos los atributos posean
 un valor válido en el momento de la creación del objeto, evitando el estado inconsistente.
@@ -109,6 +187,22 @@ de objetos.
 En conjunto con los métodos estáticos, también existen **atributos estáticos**, que pertenecen a la clase y son
 compartidos por todas las instancias. Esto permite modelar información global o común a todos los objetos de una misma
 clase.
+
+**Ejemplo:**
+
+```dart
+    class Persona {
+      // Variable de la clase
+      static const int MAX_EDAD = 120;
+      String nombre;
+      int edad;
+
+      Persona(this.nombre, this.edad) : edad = edad > MAX_EDAD ? MAX_EDAD : edad;
+      
+      // Métod de la clase
+      static String get nombreCompleto => '$nombre $apellido';
+  }
+```
 
 ---
 
