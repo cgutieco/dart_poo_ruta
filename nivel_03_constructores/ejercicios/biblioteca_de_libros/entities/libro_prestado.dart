@@ -29,7 +29,7 @@ class LibroPrestado extends Libro {
 
   String? get nombreUsuario => _nombreUsuario;
 
-  set nombreUsuario(String value) {
+  set nombreUsuario(String? value) {
     _nombreUsuario = value;
   }
 
