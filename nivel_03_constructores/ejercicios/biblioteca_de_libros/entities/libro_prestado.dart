@@ -43,7 +43,7 @@ class LibroPrestado extends Libro {
 
   @override
   String toString() {
-    return """Nombre del usuario: ${_nombreUsuario}
+    return """Nombre del usuario.dart: ${_nombreUsuario}
 Código del libro prestado: ${_codigoPrestamo}\n""";
   }
 }
