@@ -2,8 +2,9 @@
 
 Con la llegada de **Dart 3**, el lenguaje incorporó los **records** como una nueva forma de agrupar valores relacionados
 sin necesidad de definir explícitamente una clase.  
-Se trata de una característica especialmente útil cuando se desea **retornar múltiples valores de una función**, *
-*transportar datos sin comportamiento** o **trabajar con tipos de valor ligeros**, que ofrecen ventajas en legibilidad y
+Se trata de una característica especialmente útil cuando se desea **retornar múltiples valores de una función**,
+**transportar datos sin comportamiento** o **trabajar con tipos de valor ligeros**, que ofrecen ventajas en legibilidad
+y
 eficiencia.
 
 Los records se consideran parte de la categoría de **tipos de valor**, en contraste con los objetos tradicionales, que
@@ -23,7 +24,7 @@ La sintaxis de un record se basa en **paréntesis** que agrupan un conjunto de v
 Ejemplos conceptuales:
 
 - Record posicional: `(1, "texto", true)`
-- Record nombrado: `(:x: 10, y: 20)`
+- Record nombrado: `(x: 10, y: 20)`
 - Record mixto: `(1, 2, z: 3)`
 
 En esencia, un record es una **estructura inmutable** y **ligera**, capaz de representar un conjunto fijo de valores con
@@ -79,7 +80,7 @@ Ejemplo conceptual:
 ```dart
 var r1 = (x: 1, y: 2);
 var r2 = (x: 1, y: 2);
-print(r1==r2); // true
+print(r1 == r2); // true
 ```
 
 Este comportamiento contrasta con las clases, donde la igualdad depende de la implementación de ==.
