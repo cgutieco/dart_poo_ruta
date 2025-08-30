@@ -35,7 +35,7 @@ String apellido; // Debe ser inicializado antes de usarse
 
 ---
 
-13.2 Operadores de Null Safety
+## 13.2 Operadores de Null Safety
 
 Dart provee una serie de operadores que permiten trabajar de forma segura con valores anulables, ofreciendo expresiones
 más claras y evitando verificaciones redundantes.
@@ -46,8 +46,7 @@ Permite invocar métodos o acceder a propiedades únicamente si la referencia no
 Si es nula, devuelve null sin lanzar excepción.
 
 ```dart
-persona?.saludar
-();
+persona?.saludar();
 ```
 
 b) Operador de coalescencia (??)
@@ -55,7 +54,6 @@ b) Operador de coalescencia (??)
 Devuelve un valor alternativo si la expresión es null.
 
 ```dart
-
 String nombre = entrada ?? "Desconocido";
 ```
 
@@ -64,9 +62,7 @@ c) Asignación por coalescencia (??=)
 Asigna un valor únicamente si la variable es actualmente null.
 
 ```dart
-nombre ??= "
-Invitado
-";
+nombre ??= "Invitado";
 ```
 
 d) Operador de aserción (!)
@@ -75,7 +71,6 @@ Indica al compilador que una variable anulable no es nula en ese contexto.
 Se debe usar con precaución, ya que si la variable resulta ser null en tiempo de ejecución, se lanzará una excepción.
 
 ```dart
-
 String? posible = obtenerDato();
 String seguro = posible!; // El programador garantiza que no es null
 ```
