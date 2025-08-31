@@ -2,10 +2,10 @@
 
 El patrón **Singleton** persigue garantizar que **exista una única instancia** de una clase durante el ciclo de vida de
 la aplicación y que ésta sea **fácilmente accesible** desde cualquier punto del código.  
-En los lenguajes orientados a objetos tradicionales su implementación exige cuidar la **creación controlada**, la *
-*identidad canónica** y la **gestión de visibilidad**. Dart aporta mecanismos específicos (constructores `factory`,
-inicialización *lazy* con `late`, modificadores de clase como `final` y el modelo de **librerías/privacidad por archivo
-**) que simplifican y refuerzan el patrón.
+En los lenguajes orientados a objetos tradicionales su implementación exige cuidar la **creación controlada**, la 
+**identidad canónica** y la **gestión de visibilidad**. Dart aporta mecanismos específicos (constructores `factory`,
+inicialización *lazy* con `late`, modificadores de clase como `final` y el modelo de 
+**librerías/privacidad por archivo**) que simplifican y refuerzan el patrón.
 
 > **Advertencia académica**: el Singleton es útil, pero abusarlo puede degradar la arquitectura hacia estados globales
 > difíciles de testar. La recomendación moderna es **preferir inyección de dependencias** y reservar el Singleton para

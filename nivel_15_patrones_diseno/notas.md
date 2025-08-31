@@ -5,8 +5,8 @@ desarrollo de software.
 No son fragmentos de código listos para copiar y pegar, sino **esquemas conceptuales** que guían al programador en la
 creación de arquitecturas más claras, flexibles y mantenibles.
 
-En el contexto de Dart —y de la Programación Orientada a Objetos en general— los patrones de diseño se entienden como *
-*formas estandarizadas de organizar clases, objetos e interacciones** para resolver necesidades que aparecen una y otra
+En el contexto de Dart —y de la Programación Orientada a Objetos en general— los patrones de diseño se entienden como 
+**formas estandarizadas de organizar clases, objetos e interacciones** para resolver necesidades que aparecen una y otra
 vez: cómo crear objetos, cómo estructurar jerarquías o cómo comunicar diferentes componentes.
 
 ---
