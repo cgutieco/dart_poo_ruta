@@ -75,7 +75,7 @@ final class ConfigService {
 
 ---
 
-## 3.2 Singleton lazy con `late final` + `instance` (acceso explícito)
+### 3.2 Singleton lazy con `late final` + `instance` (acceso explícito)
 
 - Inicializa bajo demanda la primera vez que se solicita.
 
@@ -98,7 +98,7 @@ final class Logger {
 
 ---
 
-## 3.3 Instancia top-level inmutable (simple y directa)
+### 3.3 Instancia top-level inmutable (simple y directa)
 
 - Se evita el `factory`; se expone una variable global `final`.
 
@@ -120,7 +120,7 @@ final class Database {
 
 ---
 
-## 3.4 “Singleton const” (caso especial, inmutable y canónico)
+### 3.4 “Singleton const” (caso especial, inmutable y canónico)
 
 - Solo viable si todos los campos son inmutables y el objeto no tiene efectos.
 
