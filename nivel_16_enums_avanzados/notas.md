@@ -175,39 +175,7 @@ String mensaje(Status s) =>
 
 ---
 
-## 7. Enums con datos y pattern matching / guardas
-
-Cuando un enum lleva datos asociados, puedes combinar `switch` con desestructuración y guardas para refinar
-comportamiento.
-
-```dart
-enum Response {
-  success(200),
-  notFound(404),
-  serverError(500);
-
-  final int code;
-
-  const Response(this.code);
-}
-
-String interpret(Response r) =>
-    switch (r) {
-      Response.success(code: var code) when code < 300 => 'OK',
-      Response.notFound() => 'No encontrado',
-      Response.serverError() => 'Error servidor',
-    };
-```
-
-**Observaciones**:
-
-- La desestructuración por nombre (`Response.success(code: var code)`) permite extraer campos directamente en la rama.
-- Las guardas (`when`) permiten filtrar aún más sin dispersar lógica fuera del `switch`.
-- Mantén las guardas simples; si se vuelven complejas, mueve la lógica a métodos auxiliares.
-
----
-
-## 8. Serialización y persistencia
+## 7. Serialización y persistencia
 
 Decidir cómo serializar enums es crítico para la compatibilidad:
 
@@ -239,7 +207,7 @@ enum Priority {
 
 ---
 
-## 9. Enum vs Sealed class — criterio de elección
+## 8. Enum vs Sealed class — criterio de elección
 
 | Criterio                                                       |          Enum |    Sealed class |
 |----------------------------------------------------------------|--------------:|----------------:|
@@ -254,7 +222,7 @@ enum Priority {
 
 ---
 
-## 10. Buenas prácticas, anti-patrones y testing
+## 9. Buenas prácticas, anti-patrones y testing
 
 **Buenas prácticas**:
 
@@ -279,7 +247,7 @@ enum Priority {
 
 ---
 
-## 11. Rendimiento y consideraciones prácticas
+## 10. Rendimiento y consideraciones prácticas
 
 - Las constantes de enum son instancias canónicas y están creadas en tiempo de carga; el coste en tiempo de ejecución es
   despreciable para la mayoría de aplicaciones.
@@ -288,7 +256,7 @@ enum Priority {
 
 ---
 
-## 12. Ejemplos compuestos (enum con fields + extension + switch expresión + record)
+## 11. Ejemplos compuestos (enum con fields + extension + switch expresión + record)
 
 ```dart
 enum HttpStatus {
