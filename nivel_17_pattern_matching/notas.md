@@ -2,8 +2,8 @@
 
 El **pattern matching** (coincidencia de patrones) introducido y consolidado en Dart 3.x constituye una de las mejoras
 más potentes del lenguaje en materia de expresividad y seguridad de tipos.  
-A nivel conceptual, pattern matching permite **examinar la forma** de un valor —su estructura, tipo y contenido— y *
-*extraer** partes de ese valor de manera declarativa y segura. Cuando se combina con otras características de Dart 3.x (
+A nivel conceptual, pattern matching permite **examinar la forma** de un valor —su estructura, tipo y contenido— y 
+**extraer** partes de ese valor de manera declarativa y segura. Cuando se combina con otras características de Dart 3.x (
 records, sealed classes, `switch` expresiones) se obtiene un conjunto de herramientas que transforman estructuras de
 control rutinarias en expresiones concisas, declarativas y verificables por el compilador.
 
